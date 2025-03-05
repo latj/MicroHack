@@ -7,7 +7,7 @@ Duration: 30 minutes
 - Please ensure that you successfully verified the [General prerequisites](../../Readme.md#general-prerequisites) before continuing with this challenge.
 - Azure Cloud Shell together with Terraform are the tools of choice for deploying the MicroHack.
 
-### **Task 1: Deploy the Landing Zone for the Micro Hack**
+### **Task 1: Deploy the Landing Zone for the MicroHack**
 
 - Open the [Azure Portal](https://portal.azure.com) and login using a user account with at least Contributor permissions on a Azure Subscription. Start the Azure Cloud Shell from the Menu bar on the top.
 - If you prefer a full-screen shell then go to [Cloud Shell](https://shell.azure.com)
@@ -50,8 +50,10 @@ export ARM_SUBSCRIPTION_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 - You are now ready to deploy the MicroHack resources. Run commands:
 
-```HCL
+```
 terraform init
+```
+```
 terraform apply
 ```
 
@@ -63,6 +65,10 @@ var.admin_password
 
   Enter a value: 
 ```
+
+- You are shown the list of resources that will be created. Answer `Yes` and continue.
+
+
 
 - Wait for the deployment to finish. You can view the deployment from the Azure portal by selecting the Azure Subscription and clicking on *Deployments* from the navigation pane on the left.
 

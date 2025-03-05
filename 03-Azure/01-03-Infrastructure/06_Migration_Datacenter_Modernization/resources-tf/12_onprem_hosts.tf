@@ -114,7 +114,7 @@ resource "azurerm_virtual_machine_extension" "lnxweb1-cse" {
   type_handler_version = "2.1"
   settings = <<SETTINGS
   {
-      "commandToExecute": "sudo firewall-cmd --zone=public --add-port=80/tcp --permanent && sudo firewall-cmd --reload && sudo python3 -m http.server 80 &"
+      "commandToExecute": "sudo firewall-cmd --zone=public --add-port=80/tcp --permanent && sudo firewall-cmd --reload"
   }
 SETTINGS
 }
@@ -319,6 +319,9 @@ resource "azurerm_lb_rule" "http" {
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
+  idle_timeout_in_minutes        = 15
+  enable_tcp_reset               = true
+  disable_outbound_snat          = true
   frontend_ip_configuration_name = "PublicIPAddress"
   backend_address_pool_ids = [
     azurerm_lb_backend_address_pool.backend.id
