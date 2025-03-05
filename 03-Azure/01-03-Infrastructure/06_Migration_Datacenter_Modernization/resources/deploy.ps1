@@ -4,6 +4,9 @@ $pathToIndex = "C:\inetpub\wwwroot\index.html"
 $replaceText = "<HOSTNAME>"
 $hostname = $env:computername
 
+# Force-create wwwroot directory
+New-Item -Path "C:\" -Name "inetpub\wwwroot" -ItemType "directory" -Force
+
 # Remove Default contents of wwwroot
 Remove-Item -Path "C:\inetpub\wwwroot\*.*"
 

@@ -68,7 +68,15 @@ var.admin_password
 
 - You are shown the list of resources that will be created. Answer `Yes` and continue.
 
+```
+Plan: 43 to add, 0 to change, 0 to destroy.
 
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:
+```
 
 - Wait for the deployment to finish. You can view the deployment from the Azure portal by selecting the Azure Subscription and clicking on *Deployments* from the navigation pane on the left.
 
