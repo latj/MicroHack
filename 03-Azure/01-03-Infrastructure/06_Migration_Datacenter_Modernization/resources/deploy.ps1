@@ -1,5 +1,5 @@
 # Setting Variables
-$pathToRepo = "https://raw.githubusercontent.com/microsoft/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/demopage"
+$pathToRepo = "https://raw.githubusercontent.com/microsoft/MicroHack/refs/heads/main/03-Azure/01-03-Infrastructure/06_Migration_Secure_AI_Ready/resources/demopage/index.html"
 $pathToIndex = "C:\inetpub\wwwroot\index.html"
 $replaceText = "<HOSTNAME>"
 $hostname = $env:computername
