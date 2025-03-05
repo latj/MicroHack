@@ -1,7 +1,15 @@
 # Create the on-premises hosts
 
+/*
 locals {
   deploymentscript_winweb1 = "https://raw.githubusercontent.com/latj/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/deploy.ps1"
+  deploymentscript_discovery = "https://raw.githubusercontent.com/latj/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/discovery.ps1"
+  deploymentscript_migration = "https://raw.githubusercontent.com/latj/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/migration.ps1"  
+  linux_customdata = file("../resources/cloud.cfg")
+}*/
+
+locals {
+  deploymentscript_winweb1 = "https://raw.githubusercontent.com/latj/MicroHack/refs/heads/terraform/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/deploy.ps1"
   deploymentscript_discovery = "https://raw.githubusercontent.com/latj/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/discovery.ps1"
   deploymentscript_migration = "https://raw.githubusercontent.com/latj/MicroHack/main/03-Azure/01-03-Infrastructure/06_Migration_Datacenter_Modernization/resources/migration.ps1"  
   linux_customdata = file("../resources/cloud.cfg")
