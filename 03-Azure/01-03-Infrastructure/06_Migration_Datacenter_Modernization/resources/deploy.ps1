@@ -5,7 +5,10 @@ $replaceText = "<HOSTNAME>"
 $hostname = $env:computername
 
 # Force-create wwwroot directory
-New-Item -Path "C:\" -Name "inetpub\wwwroot" -ItemType "directory" -Force
+#New-Item -Path "C:\" -Name "inetpub\wwwroot" -ItemType "directory" -Force
+
+# Sleep for 30 seconds to allow the wwwroot directory to be created
+Start-Sleep -Seconds 30
 
 # Remove Default contents of wwwroot
 Remove-Item -Path "C:\inetpub\wwwroot\*.*"
