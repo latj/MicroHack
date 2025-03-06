@@ -69,7 +69,7 @@ var.admin_password
 - You are shown the list of resources that will be created. Answer `Yes` and continue.
 
 ```
-Plan: 43 to add, 0 to change, 0 to destroy.
+Plan: 44 to add, 0 to change, 0 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
