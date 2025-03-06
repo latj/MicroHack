@@ -1,4 +1,11 @@
-# Create the Azure network
+# Resource group
+
+resource "azurerm_resource_group" "azure" {
+  name     = "${var.global_label}-${var.group_label}-azure-rg"
+  location = var.location
+}
+
+# Azure networking resources
 
 resource "azurerm_virtual_network" "azure" {
   name                = "azure-vnet"
