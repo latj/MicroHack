@@ -8,12 +8,12 @@ $hostname = $env:computername
 Remove-Item -Path "C:\inetpub\wwwroot\*.*"
 
 # Download files from repository
-Invoke-WebRequest -Uri "$pathToRepo/index.html" -OutFile C:\inetpub\wwwroot\index.html
-Invoke-WebRequest -Uri "$pathToRepo/GitHub_Logo.png" -OutFile C:\inetpub\wwwroot\GitHub_Logo.png
-Invoke-WebRequest -Uri "$pathToRepo/MSLogo.png" -OutFile C:\inetpub\wwwroot\MSLogo.png
-Invoke-WebRequest -Uri "$pathToRepo/MSicon.png" -OutFile C:\inetpub\wwwroot\MSicon.png
-Invoke-WebRequest -Uri "$pathToRepo/github-mark.png" -OutFile C:\inetpub\wwwroot\github-mark.png
-Invoke-WebRequest -Uri "$pathToRepo/stylesheet.css" -OutFile C:\inetpub\wwwroot\stylesheet.css
+Invoke-WebRequest -Uri "${pathToRepo}/index.html" -OutFile C:\inetpub\wwwroot\index.html
+Invoke-WebRequest -Uri "${pathToRepo}/GitHub_Logo.png" -OutFile C:\inetpub\wwwroot\GitHub_Logo.png
+Invoke-WebRequest -Uri "${pathToRepo}/MSLogo.png" -OutFile C:\inetpub\wwwroot\MSLogo.png
+Invoke-WebRequest -Uri "${pathToRepo}/MSicon.png" -OutFile C:\inetpub\wwwroot\MSicon.png
+Invoke-WebRequest -Uri "${pathToRepo}/github-mark.png" -OutFile C:\inetpub\wwwroot\github-mark.png
+Invoke-WebRequest -Uri "${pathToRepo}/stylesheet.css" -OutFile C:\inetpub\wwwroot\stylesheet.css
 
 # Replace Hostname placeholter with actual Hostname
 (Get-Content -path $pathToIndex -Raw).replace($replaceText, $hostname) | Set-Content -Path $pathToIndex
