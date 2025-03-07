@@ -1,14 +1,12 @@
-# Deploy the Landing Zone for the Micro Hack
+# Deploy the Landing Zone for the MicroHack
 
-Download \*.bicep files to your local PC and follow [Solution 1](../walkthrough/challenge-1/solution.md)
-
+Use Azure Cloud Shell to deploy the MicroHack environment by following [Solution 1](../walkthrough/challenge-1/solution-tf.md).
 
 ## Quota Information if multiple Users Deploy to the same subscription
 
-If you have multiple users deploying to the same subscription you need to make sure you have enough quota for the deployments.
-For 1 User deployment you should make sure to have the following quotas requested upfront:
+If you have multiple users deploying to the same subscription you need to make sure you have enough quota for the deployments. For a single user deployment, make sure to have the following quotas requested upfront:
 
-| Quota name  | needed Quantity |
+| Quota name  | Required quantity |
 | ------------- | ------------- |
 | Total Regional vCPUs  | 30  |
 | Standard DSv5 Family vCPUs  | 10  |
@@ -17,7 +15,7 @@ For 1 User deployment you should make sure to have the following quotas requeste
 
 That means for 5 Users that need to deploy individually to a Region you need to make sure you have the following quotas in place:
 
-| Quota name  | needed Quantity |
+| Quota name  | Required quantity |
 | ------------- | ------------- |
 | Total Regional vCPUs  | 150  |
 | Standard DSv5 Family vCPUs  | 50  |

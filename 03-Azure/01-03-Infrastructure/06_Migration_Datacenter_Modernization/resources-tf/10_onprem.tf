@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "onprem" {
 ## Start network resources
 
 resource "azurerm_virtual_network" "onprem" {
-  name                = "onprem-vnet"
+  name                = "onprem-vnet-${var.group_label}"
   location            = azurerm_resource_group.onprem.location
   resource_group_name = azurerm_resource_group.onprem.name
   address_space       = ["10.1.0.0/16"]
@@ -29,7 +29,7 @@ resource "azurerm_subnet" "onprem-bastion" {
 }
 
 resource "azurerm_network_security_group" "onprem" {
-  name                = "onprem-nsg"
+  name                = "onprem-nsg-${var.group_label}"
   location            = azurerm_resource_group.onprem.location
   resource_group_name = azurerm_resource_group.onprem.name
 }
@@ -62,7 +62,7 @@ resource "azurerm_public_ip" "onprem-bastion" {
 }
 
 resource "azurerm_bastion_host" "onprem" {
-  name                = "onprem-bastion"
+  name                = "onprem-bastion-${var.group_label}"
   sku                 = "Basic"
   location            = azurerm_resource_group.onprem.location
   resource_group_name = azurerm_resource_group.onprem.name
@@ -85,7 +85,7 @@ resource "random_string" "keyvault" {
 }
 
 resource "azurerm_key_vault" "onprem" {
-  name                = "${var.global_label}-${random_string.keyvault.result}-kv"
+  name                = "${var.group_label}-${random_string.keyvault.result}-kv"
   location            = azurerm_resource_group.onprem.location
   resource_group_name = azurerm_resource_group.onprem.name
   sku_name            = "standard"

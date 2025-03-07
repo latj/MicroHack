@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "azure" {
 # Azure networking resources
 
 resource "azurerm_virtual_network" "azure" {
-  name                = "azure-vnet"
+  name                = "azure-vnet-${var.group_label}"
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
   address_space       = ["10.2.0.0/16"]
@@ -29,7 +29,7 @@ resource "azurerm_subnet" "azure-bastion" {
 }
 
 resource "azurerm_network_security_group" "azure" {
-  name                = "azure-nsg"
+  name                = "azure-nsg-${var.group_label}"
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
 }
@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "azure-bastion" {
 }
 
 resource "azurerm_bastion_host" "azure" {
-  name                = "azure-bastion"
+  name                = "azure-bastion-${var.group_label}"
   sku                 = "Basic"
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
