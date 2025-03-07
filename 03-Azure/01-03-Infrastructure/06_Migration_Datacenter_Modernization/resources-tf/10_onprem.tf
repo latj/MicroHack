@@ -303,7 +303,7 @@ resource "azurerm_windows_virtual_machine" "migration" {
   name                            = "migration"
   resource_group_name             = azurerm_resource_group.onprem.name
   location                        = azurerm_resource_group.onprem.location
-  size                            = var.workload_host_size
+  size                            = var.migration_host_size
   admin_username                  = var.admin_username
   admin_password                  = var.admin_password
   identity {
@@ -326,6 +326,22 @@ resource "azurerm_windows_virtual_machine" "migration" {
   }
   boot_diagnostics {}
   vm_agent_platform_updates_enabled = true
+}
+
+resource "azurerm_managed_disk" "migration" {
+  name                 = "migration-disk1"
+  location             = azurerm_resource_group.onprem.location
+  resource_group_name  = azurerm_resource_group.onprem.name
+  storage_account_type = "StandardSSD_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = 1024
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "migration" {
+  managed_disk_id    = azurerm_managed_disk.migration.id
+  virtual_machine_id = azurerm_windows_virtual_machine.migration.id
+  lun                = "1"
+  caching            = "ReadWrite"
 }
 
 resource "azurerm_virtual_machine_extension" "migration-cse" {

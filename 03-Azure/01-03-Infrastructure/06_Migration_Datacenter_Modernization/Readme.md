@@ -10,7 +10,7 @@
 
 # MicroHack introduction
 
-This MicroHack scenario walks through the process how to optimize and modernize you datacenter. The assessment, the tooling and processes are global best practices and with a focus on the real world scenarios, cost optimization and the best customer recommended design principles. Specifically, this builds up to include working with an existing infrastructure.
+This MicroHack scenario walks through the process how to optimize and modernize your datacenter. The assessment, the tooling and processes are global best practices and with a focus on the real world scenarios, cost optimization and the best customer recommended design principles. Specifically, this builds up to include working with an existing infrastructure.
 
 This lab is not a full explanation of building up a migration factory or a program to modernize your processes and dependencies. Please consider the following articles required pre-reading to build foundational knowledge.
 
@@ -41,8 +41,8 @@ This MicroHack scenario walks through the use of Azure Migrate to support the pr
 As part of the MicroHack, we will simulate the discovery and migration of physical servers to Azure. We will create the source systems as Azure Virtual Machines within a dedicated source Resource Group in Azure to simulate the on-prem datacenter. We will use Azure Migrate to discover, assess and migrate the systems into a destination Resource Group that simulates the target Azure environment.
 
 The concept behind physical server discovery and migration is described in detail under the following links:
-* [Physical Server discovery](https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical)
-* [Physical Server migration](https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical-migration)
+* [Physical server discovery](https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical)
+* [Physical server migration](https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical-migration)
 
 # Objectives
 
@@ -71,36 +71,41 @@ With these pre-requisites in place, we can focus on building the differentiated 
 
 ### Goal
 
-- Deploy a *source* resource group with two VMs and their dependencies that act as our physical on-premise servers that will be migrated to Azure.
-- Deploy a *destination* resource group to which the servers will be migrated.
+- Deploy an *onprem* resource group with two VMs and their dependencies that act as our physical on-premise servers that will be migrated to Azure.
+- Deploy an *azure* resource group to which the servers will be migrated.
 
 ### Actions
 
-- Deploy the [Bicep configuration](./resources) of the Micro Hack.
+- Deploy the MicroHack resources into your subscription using one of:
+  - [Bicep](./resources)
+  - [Terraform](./resources-tf)
 
 ### Success criteria
 
 - You have understood the concept and architecture for the MicroHack.
-- The Bicep deployment command exits successfully.
-- The *source* and *destination* resource group is visible in the Azure Portal.
+- The deployment is successful.
+- The *onprem* and *azure* resource groups are visible in the Azure Portal.
 
 ### Learning resources
 
 - [What is Bicep?](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+- [Terraform on Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
-[Solution Steps](./walkthrough/challenge-1/solution.md)
+- [Solution using Bicep](./walkthrough/challenge-1/solution.md)
+- [Solution using Terraform](./walkthrough/challenge-1/solution-tf.md)
 
 ## Challenge 2 - Discover physical servers for the migration
 
 ### Goal 
 
-The goal of this exercise is to...
+The goal of this exercise is to:
 
-* Setup Azure Migrate Project in Azure
-* Installing / Deploying the necessary setup for discovery 
-* Create a discovery 
+* Set up an Azure Migrate project in Azure
+* Install the migration appliance on VM *discovery*
+* Connect the appliance to Azure
+* Perform discovery 
 
 ### Actions
 
@@ -112,10 +117,10 @@ The goal of this exercise is to...
 
 ### Success criteria
 
-* You have created a Azure Migrate Project
-* You have successfully deployed the Azure Migrate Appliance
-* You successfully registered the Azure Migrate Appliance with the Azure Migrate Project
-* You have successfully setup a continuous discovery for the physical servers.
+* You have created an Azure Migrate project
+* You have successfully deployed the Azure Migrate appliance
+* You successfully registered the Azure Migrate appliance with the Azure Migrate project
+* You have successfully set up a continuous discovery for the physical servers.
 * You have successfully verified the discovered servers in the portal
 
 ### Learning resources
@@ -125,7 +130,7 @@ The goal of this exercise is to...
 * [Steup an appliance for physical servers](https://learn.microsoft.com/en-us/azure/migrate/how-to-set-up-appliance-physical)
 * [Before you start / general prerequisites](https://learn.microsoft.com/en-us/azure/migrate/how-to-discover-applications#before-you-start) 
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-2/solution.md)
 
@@ -177,12 +182,11 @@ The goal of this exercise is to create a business case. The Business case capabi
 * [Build a business case](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case)
 * [Review a business case](https://learn.microsoft.com/en-us/azure/migrate/how-to-view-a-business-case)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-3/solution.md)
 
-
-## Challenge 4 - Assess VM´s for the migration
+## Challenge 4 - Assess VMs for migration
 
 In most cases, you don't want to migrate all machines at once, but want to prioritize workload by workload and even understand what the dependencies between workloads are. You then look at each phase or wave of migration and break down the risks and workloads.
 
@@ -215,7 +219,7 @@ The goal of this exercise is to ...
 * [Create an Azure VM assessment](https://learn.microsoft.com/en-us/azure/migrate/how-to-create-assessment)
 * [Customize an assessment](https://learn.microsoft.com/en-us/azure/migrate/how-to-modify-assessment)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-4/solution.md)
 
@@ -232,11 +236,11 @@ The goal of this exercise is to ...
 
 ### Actions
 
-* Setup the Azure Replication Appliance
-* Deploy the Mobility Service Agent
+* Setu p the Azure Replication appliance
+* Deploy the Mobility Service agent
 * Replicate the machines to Azure
-* Perform a Test Migration
-* Prepare the final Migration
+* Perform a test migration
+* Prepare the final migration
 * Migrate the workload to Azure
 
 ### Success criteria
@@ -252,13 +256,13 @@ The goal of this exercise is to ...
 * [Migrate AWS Instances to Azure](https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-aws-virtual-machines)
 * [Migrate GCP Instances to Azure](https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-gcp-virtual-machines)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-5/solution.md)
 
 ## Challenge 6 - Secure on Azure
 
-### Goal 
+### Goal
 
 The goal of this exercise is to ...
 
@@ -279,7 +283,7 @@ The goal of this exercise is to ...
 * [How Update Manager works ](https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-servers-plan)
 * [Deploy Defender for Servers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-servers-plan)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-6/solution.md)
 
@@ -313,7 +317,7 @@ The goal of this exercise is to ...
 * [App Service Migration Assistant](https://github.com/Azure/App-Service-Migration-Assistant/wiki)
 * [App Service migration tools and resources](https://learn.microsoft.com/en-us/azure/app-service/app-service-asp-net-migration#app-service-migration-tools-and-resources)
 
-### Solution - Spoilerwarning
+### Solution - Spoiler warning!
 
 [Solution Steps](./walkthrough/challenge-7/solution.md)
 
