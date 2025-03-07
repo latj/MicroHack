@@ -1,4 +1,4 @@
-# Walkthrough Challenge 4 - Assess VM´s for the migration
+# Walkthrough Challenge 4 - Assess VMs for the migration
 
 Duration: 40 minutes
 
@@ -10,7 +10,7 @@ Please make sure thet you successfully completed [Challenge 3](../challenge-3/so
 
 You group servers together to assess whether they are suitable for migration to Azure and to get size and cost estimates for Azure.
 
-Open the [Azure Portal](https://portal.azure.com) and navigate to the previousley created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Overview*.
+Open the [Azure Portal](https://portal.azure.com) and navigate to the previously-created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Overview*.
 
 ![image](./img/Assess1.png)
 

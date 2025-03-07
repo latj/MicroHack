@@ -6,8 +6,6 @@ Duration: 40 minutes
 
 Please make sure that you successfully completed [Challenge 5](../challenge-5/solution.md) before continuing with this challenge.
 
-
-
 ## **Task 1: Enable Azure Update Manager**
 
 In [Challenge 5](../challenge-5/solution.md) you migrated servers to Azure. Now you will enable Azure Update Manager, that is a unified service to help manage and govern updates for all your machines (running a server operating system). Update Manager work both for Windows And Linux and machine in Azure or connected by Azure Arc

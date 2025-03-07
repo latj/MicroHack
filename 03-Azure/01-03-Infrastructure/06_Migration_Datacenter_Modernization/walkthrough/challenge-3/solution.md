@@ -4,12 +4,11 @@ Duration: 40 minutes
 
 ## Prerequisites
 
-Please make sure thet you successfully completed [Challenge 2](../challenge-2/solution.md) before continuing with this challenge.
-Please also make sure to review the [prerequisites](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case#prerequisites) for the business case.
+Please make sure thet you successfully completed [Challenge 2](../challenge-2/solution.md) before continuing with this challenge. Please also make sure to review the [prerequisites](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case#prerequisites) for the business case.
 
 ### **Task 1: Build a business case**
 
-Open the [Azure Portal](https://portal.azure.com) and navigate to the previousley created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Build business case*.
+Open the [Azure Portal](https://portal.azure.com) and navigate to the previously-created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Build business case*.
 
 ![image](./img/bc1.png)
 
@@ -26,14 +25,13 @@ Wait for the business case creation to complete and click on the business case n
 
 ![image](./img/bc3.png)
 
-
 ### **Task 2: Review a business case**
 
 There are four major reports that you need to review:
 
 - Overview: This report is an executive summary of the business case and covers:
   + Potential savings (TCO).
-  + Estimated year on year cashflow savings based on the estimated migration completed that year.
+  + Estimated year-on-year cashflow savings based on the estimated migration completed that year.
   + Savings from unique Azure benefits like Azure Hybrid Benefit.
   + Discovery insights covering the scope of the business case.
 

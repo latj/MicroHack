@@ -6,22 +6,20 @@ Duration: 90 minutes
 
 Please make sure thet you successfully completed [Challenge 4](../challenge-4/solution.md) before continuing with this challenge.
 
-### **Task 1: Prepare Windows Server 2019 for the Azure Replication Appliance**
+### **Task 1: Prepare Windows Server 2019 for the Azure Replication appliance**
 
-To start physical server migration you must install the Azure Replication Appliance on your on-premises. The Azure Replication Appliance can be downloaded as a OVA template or you can download the appliance installer to install it on a already existing server. For the purpose of this MicroHack we will install the Azure Replication Appliance via the installer on a Windows Server 2019, namned **Migration** that is **allready deployed**.
+To start physical server migration you must install the Azure Replication appliance on your on-premises. The Azure Replication appliance can be downloaded as a OVA template or you can download the appliance installer to install it on a already existing server. For the purpose of this MicroHack we will install the Azure Replication appliance via the installer on a Windows Server 2019, namned **Migration** that is **already deployed**.
 
-The deployed architecture now looks like the following diagram. So you need to configure Azure Replication Appliance, to replicate servers
+The deployed architecture now looks like the following diagram. So you need to configure Azure Replication appliance, to replicate servers.
 
 ![image](./img/Challenge-5.jpg)
 
-
+> [!IMPORTANT]
+> If you deploy your own appliance, please make sure to check the [prerequisites](https://learn.microsoft.com/en-us/azure/migrate/migrate-replication-appliance) of the Azure 
+Replication appliance.
 
 > [!IMPORTANT]
-> If you deploy your own Appliance, please make sure to check the [prerequisites](https://learn.microsoft.com/en-us/azure/migrate/migrate-replication-appliance) of the Azure 
-Replication Appliance.
-
-> [!IMPORTANT]
-> Please note that it is currently [not supported](https://learn.microsoft.com/en-us/azure/migrate/common-questions-appliance#can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter) to install the Azure Migrate Replication Appliance on the same system as the Azure Migrate Appliance.
+> Please note that it is currently [not supported](https://learn.microsoft.com/en-us/azure/migrate/common-questions-appliance#can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter) to install the Azure Migrate Replication appliance on the same system as the Azure Migrate appliance.
 
 Find the Virtual Machine **Migration** in the Portal and select it. Then select *Bastion* from the navigation pane on the left, provide the credentials to login to the Azure Migrate Replication VM and select *Connect*. A new browser tab should open with a remote session to the Windows Server 2019 system.
 
@@ -30,7 +28,7 @@ Find the Virtual Machine **Migration** in the Portal and select it. Then select 
 > [!NOTE]
 > You can also select *Password from Azure KeyVault* under *Authentication Type* if you set the password during VM creation to match the secret stored in the KeyVault.
 
-### **Task 2: Setup the Azure Replication Appliance**
+### **Task 2: Setup the Azure Replication appliance**
 
 To prepare for physical server migration, you need to verify the physical server settings, and prepare to deploy a replication appliance.
 
@@ -55,7 +53,7 @@ Wait until the operation is completed successfully.
 
 ![image](./img/disk5.png)
 
-Open the [Azure Portal](https://portal.azure.com) on the Azure Replication Appliance using the Microsoft Edge browser and navigate to the previousley created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Discover* in the *Migration tools* box.
+Open the [Azure Portal](https://portal.azure.com) on the Azure Replication appliance using the Microsoft Edge browser and navigate to the previousley created Azure Migrate project. Select *Servers, databases and web apps*, make sure that the right Azure Migrate Project is selected and click *Discover* in the *Migration tools* box.
 
 ![image](./img/mig1.png)
 
@@ -67,12 +65,12 @@ Make sure to check the confirmation checkbox and click *Create resources*.
 
 ![image](./img/mig2.png)
 
-Wait until the deployment has been successfully completed. Next under *1. Download and install the repliaction appliance software* click *Download* to download the Azure Migrate Repplication Appliance installer. 
+Wait until the deployment has been successfully completed. Next under *1. Download and install the repliaction appliance software* click *Download* to download the Azure Migrate Repplication appliance installer. 
 You also need to download the registration key that is required to register the replication appliance under *2. Configure the replication appliance and register it to the project*.
 
 ![image](./img/mig3.png)
 
-Next start the installation of the Azure Migrate Replication Appliance by double cklicking the *MicrosoftAzureSiteRecoveryUnifiedSetup.exe*
+Next start the installation of the Azure Migrate Replication appliance by double cklicking the *MicrosoftAzureSiteRecoveryUnifiedSetup.exe*
 
 ![image](./img/mig4.png)
 
@@ -130,7 +128,7 @@ After the successfull installation a configuration server connection passphrase 
 
 ![image](./img/mig17.png)
 
-After the installation completes, the Appliance configuration wizard will be launched automatically.
+After the installation completes, the appliance configuration wizard will be launched automatically.
 You can add the local administrator account credentials of the source servers (stored secrets in the source KeyVault).
 
 ![image](./img/mig17-1.png)
@@ -173,8 +171,8 @@ ls
 #### **Task 3.1: Install the Mobility service on the Windows VM**
 
 > [!NOTE]
-> During the installation you need to provide the passphrase that was created during the Replication Appliance installation.
-> If you forgot to copy the passphrase you can obtain it from inside the Replication Appliance via the following Powershell command. 
+> During the installation you need to provide the passphrase that was created during the Replication appliance installation.
+> If you forgot to copy the passphrase you can obtain it from inside the Replication appliance via the following Powershell command. 
 > ~~~powershell
 > Windows PowerShell
 > Copyright (C) Microsoft Corporation. All rights > reserved.
@@ -210,15 +208,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"
-set-Content .\password.txt <REPLACE WITH PASSPHRASE> -Force # This is the password you received during the installation of the Azure Replication Appliance, replace it with your password.
+set-Content .\password.txt <REPLACE WITH PASSPHRASE> -Force # This is the password you received during the installation of the Azure Replication appliance, replace it with your password.
 .\UnifiedAgentConfigurator.exe /CSEndPoint 10.1.1.7 /PassphraseFilePath "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\password.txt"
 ~~~
  
 #### **Task 3.2: Install the Mobility service on the Linux VM**
 
 > [!NOTE]
-> During the installation you need to provide the passphrase that was created during the Replication Appliance installation.
-> If you forgot to copy the passphrase you can obtain it from inside the Replication Appliance via the following Powershell command. 
+> During the installation you need to provide the passphrase that was created during the Replication appliance installation.
+> If you forgot to copy the passphrase you can obtain it from inside the Replication appliance via the following Powershell command. 
 > ~~~powershell
 > Windows PowerShell
 > Copyright (C) Microsoft Corporation. All rights > reserved.
@@ -242,8 +240,8 @@ sudo ./install -r MS -v VmWare -q -c CSLegacy # You need to specify VmWare as th
 ~~~
 
 ~~~bash
-echo <REPLACE WITH PASSPHRASE> > password.txt # This is the password you received during the installation of the Azure Replication Appliance, replace it with your password.
-sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 10.1.1.7 -P password.txt -c CSLegacy # IP 10.1.1.7 is the IP of the Azure Replication Appliance Windows VM you created.
+echo <REPLACE WITH PASSPHRASE> > password.txt # This is the password you received during the installation of the Azure Replication appliance, replace it with your password.
+sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 10.1.1.7 -P password.txt -c CSLegacy # IP 10.1.1.7 is the IP of the Azure Replication appliance Windows VM you created.
 logout
 ~~~
 
