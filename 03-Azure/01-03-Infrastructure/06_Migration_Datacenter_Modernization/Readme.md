@@ -69,7 +69,7 @@ With these pre-requisites in place, we can focus on building the differentiated 
 
 ## Challenge 1 - Prerequisites and landing zone preparation
 
-NOTE: For reference only. The pre-prepared environment you have been assigned already has Challenge 1 completed.
+*NOTE: For reference only. The pre-prepared environment you have been assigned already has Challenge 1 completed.*
 
 ### Goal
 
