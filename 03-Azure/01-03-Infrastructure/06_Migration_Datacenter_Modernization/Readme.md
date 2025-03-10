@@ -69,6 +69,8 @@ With these pre-requisites in place, we can focus on building the differentiated 
 
 ## Challenge 1 - Prerequisites and landing zone preparation
 
+NOTE: For reference only. The pre-prepared environment you have been assigned already has Challenge 1 completed.
+
 ### Goal
 
 - Deploy an *onprem* resource group with two VMs and their dependencies that act as our physical on-premise servers that will be migrated to Azure.

@@ -13,11 +13,7 @@
 - [**How to contribute** 🚀](#how-to-contribute-)
 - [**Security hints and handling / Report an issue**](#security-hints-and-handling--report-an-issue)
 - [**Which MicroHacks are available**](#which-microhacks-are-available)
-  - [01 - Identity and Access Management](#01---identity-and-access-management)
-  - [02 - Security](#02---security)
   - [03 - Azure](#03---azure)
-  - [04 - M365](#04---m365)
-  - [99 - MicroHack-Template](#99---microhack-template)
 
 # **MicroHack Overview**
 
@@ -57,30 +53,9 @@ Microsoft takes security of our software products and services seriously, which 
 
 # **Which MicroHacks are available**
 
-## 01 - Identity and Access Management
-
-In _Identity and Access Management_ you will find the MicroHacks around Identity and Access Management. Identity and Access management is often not taken seriously, but these microhacks show you real insights into many exciting topics.
-
-[Click here to jump directly to the Identity and Access Management MicroHacks](./01-Identity%20and%20Access%20Management/)
-
-## 02 - Security
-
-In _Security_ you will find all the exciting topics around security and it will be discussed, for example, how I can collect all my relevant security logs in the infrastructure and how I can integrate Hands with other security products. Not to be forgotten when it comes to security, is the integration into existing 3rd party solutions or even multi-hybrid cloud integrations. These integrations are critically examined by our experts in some MicroHacks and tuned to the necessary degree for implementation.
-
-[Click here to jump directly to the Advanced Security MicroHacks](./02-Security/)
-
 ## 03 - Azure
 
 In _Azure_ you will find Microhacks for all Azure services, best practices implementations and concrete implementations not only for cloud native, but also for hybrid and multicloud approaches. Also exciting are the Application Innovation and Developer MicroHacks, which also allow developers to gain deep dive hands on experience with Azure.
 
 [Click here to jump directly to the Overall Azure MicroHacks](./03-Azure/)
 
-## 04 - M365
-
-In _M365_ you will find Microhacks for M365 services, best practices implementations and concrete implementations. Very exciting are integrations of Power Plattform and Azure MicroHacks, which allow developers and citizen developers to gain deep-dive hands-on experience.
-
-[Click here to jump directly to the Overall M365 MicroHacks](./04-Microsoft-365/)
-
-## 99 - MicroHack-Template
-
-[See here for template instructions](./99-MicroHack-Template/)
