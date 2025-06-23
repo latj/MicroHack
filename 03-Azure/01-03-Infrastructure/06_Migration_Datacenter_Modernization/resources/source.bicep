@@ -505,7 +505,7 @@ resource vm4 'Microsoft.Compute/virtualMachines@2022-03-01' = {
   location: location
   properties: {
     hardwareProfile: {
-      vmSize: 'Standard_B4as_v2'
+      vmSize: 'Standard_B8as_v2'
     }
     osProfile: {
       computerName: 'Migration'
@@ -516,7 +516,7 @@ resource vm4 'Microsoft.Compute/virtualMachines@2022-03-01' = {
       imageReference: {
         publisher: 'MicrosoftWindowsServer'
         offer: 'WindowsServer'
-        sku: '2019-datacenter-smalldisk-g2'
+        sku: '2022-datacenter-smalldisk-g2'
         version: 'latest'
       }
       osDisk: {
